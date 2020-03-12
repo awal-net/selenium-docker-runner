@@ -3,7 +3,7 @@ pipeline{
 	stages{
 		stage("Pull Latest Image"){
 			steps{
-				sh "docker pull vinsdocker/selenium-docker"
+				sh "docker pull mdabdulawal/selenium-docker"
 			}
 		}
 		stage("Start Grid"){
@@ -21,7 +21,6 @@ pipeline{
 		always{
 			archiveArtifacts artifacts: 'output/**'
 			sh "docker-compose down"
-			sh "sudo rm -rf output/"
 		}
 	}
 }
